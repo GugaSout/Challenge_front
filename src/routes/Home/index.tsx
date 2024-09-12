@@ -1,6 +1,6 @@
 import './Home.css'
-
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Home(){
 
@@ -11,14 +11,14 @@ export default function Home(){
 
     return(
 
-        <div className="Home">
+    <div className="Home">
       <header className="navbar">
         <div className="logo">CarDoctor</div>
         <nav className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#about">Sobre</a>
+          <Link to='/'>Home</Link>
           <a href="#contact">Contatos</a>
           <a href="#services">Serviços</a>
+          <Link to='/Sobre'>Sobre</Link>
         </nav>
         <button className="cta-button" onClick={handleLoginClick}>Fazer login</button>
       </header>

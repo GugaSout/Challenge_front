@@ -41,43 +41,20 @@ body {
   padding: 9px 19px;
   border-radius: 5px;
   cursor: pointer;
-  }
-  .cta-button:hover{
-    background-color: #007bff;
-    color: white;
-    border: 1px solid white;
-    padding: 9px 19px;
-    border-radius: 5px; 
-    transition: 0.5s;
 }
-.hero-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px;
-  background-color: white;
+.cta-button:hover{
+  background-color: #007bff;
+  color: white;
+  border: 1px solid white;
+  padding: 9px 19px;
+  border-radius: 5px; 
+  transition: 0.5s;
 }
-
-.hero-content {
-  max-width: 50%;
-  text-align: left;
-}
-
-.hero-content h1 {
-  font-size: 48px;
-  color: #007bff;
-}
-
-.hero-content p {
-  font-size: 18px;
-  color: #333;
-  margin-top: 20px;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-}
-.carro{
-  width: 50vw;
+.sec-sobre{
+    background-image: url('Mazuls.png');
+    background-position: center;
+    background-size: 50vw;
+    background-repeat: no-repeat;
+    height:70vh;
+    
 }
