@@ -117,6 +117,7 @@ return (
             </div>
         </div>
                 </form>
+                
         <footer className="icones_redes">
             <a href="https://www.instagram.com/porto/" target="_blank" rel="noreferrer">
                 <img className="redes" src="insta.png" alt="Instagram" />
