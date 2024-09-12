@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Cadastro.css'
 
 export default function Cadastro() {
@@ -10,25 +11,35 @@ const [formData, setFormData] = useState({
     cpf: '',
     telefone: ''
 });
+const navigate = useNavigate();
+
+
 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
         ...formData,
         [e.target.name]: e.target.value
     });
-};
+    };
+
 const validarSenha = () => {
     if (formData.senha !== formData.confirmaSenha) {
-        alert('As senhas não coincidem.');
+      alert('As senhas não coincidem.');
+      return false; 
     } else {
-        alert('Registrado com sucesso!');
-        // Lógica para redirecionar ou realizar outra ação após o cadastro
-        window.location.href = '/index.html';
+      alert('Registrado com sucesso!');
+      return true; 
     }
-};
+  };
+
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    validarSenha();
-};
+    e.preventDefault(); 
+    if (validarSenha()) {
+      
+      navigate('/');
+    }
+  };
+
+    
 return (
     <main className="Maincad">
         <form onSubmit={handleSubmit} className="log">
@@ -102,7 +113,7 @@ return (
                     value={formData.confirmaSenha}
                     onChange={handleChange}
                 />
-                    <button className='btnCad'>Enviar</button>
+                    <button className="btnCad" type="submit">Enviar</button>
             </div>
         </div>
                 </form>
