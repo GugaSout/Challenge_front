@@ -1,65 +1,141 @@
 import React, { useState } from 'react';
+import './Veiculos.css'
 
-interface Vehicle {
-  model: string;
-  year: number;
-  plate: string;
-  mileage: number;
-  type: string;
+interface Veiculo {
+  modelo: string;
+  ano: string;
+  placa: string;
+  quilometragem: string;
+  tipo: string;
 }
 
 export default function Veiculos(){
 
-    const [vehicle, setVehicle] = useState<Vehicle>({
-        model: '',
-        year: 0,
-        plate: '',
-        mileage: 0,
-        type: '',
-      });
-    
-      const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setVehicle({ ...vehicle, [event.target.name]: event.target.value });
-      };
-    
-      const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log('Vehicle   data:', vehicle);
-        // Aqui você implementaria a lógica para salvar os dados, por exemplo, enviando para uma API
-      };
-    
-      return (
-        <div>
-            <h1>Veículos</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Modelo:</label>
-                <input type="text" name="model" value={vehicle.model} onChange={handleChange} />
-                <br/>
-                <label>Ano:</label>
-                <input type="number" name="year" value={vehicle.year} onChange={handleChange}/>
-                <br/>
-                <label>Placa:</label>
-                <input type="text" name="plate" value={vehicle.plate} onChange={handleChange}/>
-                <br/>
-                <label>Quilometragem:</label>
-                <input type="number" name="mileage" value={vehicle.mileage} onChange
-                = {handleChange} />
-                <br/>
-                <label>Tipo:</label>
-                
-                <br/>
-                <button type="submit">Salvar</button>
+  const [veiculos, setVeiculos] = useState<Veiculo[]>([]);
+  const [veiculo, setVeiculo] = useState<Veiculo>({
+    modelo: '',
+    ano: '',
+    placa: '',
+    quilometragem: '',
+    tipo: ''
+  });
 
-            </form>
-        </div>
-                
-        // <form onSubmit={handleSubmit}>
-        //   <div>
-        //     <label htmlFor="model">Modelo:</label>
-        //     <input type="text" id="model" name="model" value={vehicle.model} onChange={handleChange} />
-        //   </div>
-        //   {/* ... outros campos ... */}
-        //   {/* <button type="submit">Salvar</button>
-        // </form> */} 
-        )
+  const [editIndex, setEditIndex] = useState<number | null>(null);
+  const [isEditing, setIsEditing] = useState<boolean>(false); 
+  const [showForm, setShowForm] = useState<boolean>(true);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setVeiculo((prevVehicle) => ({
+      ...prevVehicle,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isEditing && editIndex !== null) {
+      
+      const updatedVehicles = veiculos.map((v, index) =>
+        index === editIndex ? veiculo : v
+      );
+      setVeiculos(updatedVehicles);
+      setIsEditing(false); 
+      setEditIndex(null); 
+    } else {
+      
+      setVeiculos((prevVehicles) => [...prevVehicles, veiculo]);
     }
+
+    setVeiculo({ modelo: '', ano: '', placa: '', quilometragem: '', tipo: '' }); 
+  };
+
+  const handleEdit = (index: number) => {
+    
+    const vehicleToEdit = veiculos[index];
+    setVeiculo(vehicleToEdit);
+    setIsEditing(true); 
+    setEditIndex(index); 
+    setShowForm(true); 
+  };
+
+
+  return (
+    <div className='div-veiculos'>
+      {veiculos.length > 0 && (
+        <div className='div-veiculoscad'>
+          <h2>Veículos Cadastrados:</h2>
+          {veiculos.map((v, index) => (
+            <div key={index} className='veiculo'>
+              <p><strong>Modelo:</strong> {v.modelo}</p>
+              <p><strong>Ano:</strong> {v.ano}</p>
+              <p><strong>Placa:</strong> {v.placa}</p>
+              <p><strong>Quilometragem:</strong> {v.quilometragem}</p>
+              <p><strong>Tipo:</strong> {v.tipo}</p>
+              <button onClick={() => handleEdit(index)} className='btn-Veiculo'>
+                Alterar Veículo
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      
+      {showForm && (
+        <form onSubmit={handleSubmit}>
+          <div className='div-form'>
+            <h1>{isEditing ? "Editar Veículo" :"Cadastrar Veículo"}</h1>
+            <input
+              type="text"
+              name="modelo"
+              value={veiculo.modelo}
+              onChange={handleChange}
+              placeholder='Modelo'
+              required
+            />
+
+            <input
+              type="text"
+              name="ano"
+              value={veiculo.ano}
+              onChange={handleChange}
+              placeholder='Ano'
+              required
+            />
+
+            <input
+              type="text"
+              name="placa"
+              value={veiculo.placa}
+              onChange={handleChange}
+              placeholder='Placa'
+              required
+            />
+
+            <input
+              type="text"
+              name="quilometragem"
+              value={veiculo.quilometragem}
+              onChange={handleChange}
+              placeholder='Quilometragem'
+              required
+            />
+
+            <select name="tipo" value={veiculo.tipo} onChange={handleChange} required>
+              <option value="">Selecione um tipo</option>
+              <option value="carro">Carro</option>
+              <option value="moto">Moto</option>
+              <option value="caminhão">Caminhão</option>
+            </select>
+
+            <button type="submit" className='btn-Veiculo'>
+              {isEditing ? "Salvar Alterações" : "Cadastrar Veículo"}
+            </button>
+          </div>
+        </form>
+      )}
+    </div>
+  )
+}
+    
+
