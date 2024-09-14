@@ -1,54 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f5f5f5;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 10vh;
-  padding: 0px 20px;
-  background-color: #007bff;
-  color: white;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.nav-links a {
-  margin: 0 15px;
-  color: white;
-  text-decoration: none;
-}
-
-.cta-button {
-  background-color: white;
-  color: #007bff;
-  border: none;
-  padding: 9px 19px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.cta-button:hover {
-  background-color: rgb(0, 123, 255);
-  color: white;
-  border: 1px solid white;
-  padding: 9px 19px;
-  border-radius: 5px;
-  transition: 0.5s;
-}
-
-.main_sobre {}
 
 .div-Sobre {
   display: flex;
@@ -59,17 +8,17 @@ body {
 
 .dsec-sobre {
   background-color: #007bff;
-  width: 70vw;
+  width: 60vw;
   border-radius: 20px;
-  height: 35vw;
+  height: 50vh;
 }
 
 .sec-sobre {
   background-image: url('Mazuls.png');
-  background-position: center;
-  background-size: 40vw;
+  background-position:bottom;
+  background-size: 50%;
   background-repeat: no-repeat;
-  height: 60vh;
+  height: 50vh;
   padding: 10px;
 }
 
