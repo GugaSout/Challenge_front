@@ -16,8 +16,7 @@ export default function Navbar(){
         <div className="logo">CarDoctor</div>
         <nav className="nav-links">
           <Link to='/'>Home</Link>
-          <Link to='/Veicuos'>Veiculos</Link>
-          <Link to='/Chat'>Serviços</Link>
+          <Link to='/Veiculos'>Veiculos</Link>
           <Link to='/Sobre'>Sobre</Link>
         </nav>
         <button className="cta-button" onClick={handleLoginClick}>Fazer login</button>
