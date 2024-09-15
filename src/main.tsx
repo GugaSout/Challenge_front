@@ -10,6 +10,7 @@ import Error from './routes/Error/index.tsx'
 import Login from './routes/Login/index.tsx'
 import Cadastro from './routes/Cadastro/index.tsx'
 import Sobre from './routes/Sobre/index.tsx'
+import Veiculos from './routes/Veiculos/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
     {
       path: '/Sobre',
       element:<Sobre/>
+    },
+    {
+      path: '/Veiculos',
+      element:<Veiculos/>
     }
   ]
   }
