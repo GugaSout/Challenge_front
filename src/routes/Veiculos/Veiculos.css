@@ -1,19 +1,27 @@
 .div-veiculos{
     display: flex;
-    justify-content:center ;
+    
     align-items: center;
     flex-direction: column;
     background-color:rgba(147, 212, 255, 0.863);
-    
+    height: 90vh;
     padding: 20px;
 }
 .div-veiculoscad{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    overflow: auto;
 }
 .div-veiculoscad p {
-    margin: 10px;
+    margin: 0px 10px;
+}
+.veiculo{
+    display: flex;
+    align-items: center;
+    margin: 3px;
 }
 .div-form{
     background-color: white;
@@ -54,7 +62,17 @@
 }
 .btn-Veiculo:hover{
     color: #007bff;
+    
     background-color: white;
     border:1px solid #007bff;
+}
+.btn-alt-Veiculo{
+    background-color: #007bff;
+    border: none;
+    border-radius: 100%;
+    padding: 5px;
 
+}
+.btn-alt-Veiculo img{
+    width: 20px;
 }

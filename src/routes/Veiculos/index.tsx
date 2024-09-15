@@ -72,8 +72,8 @@ export default function Veiculos(){
               <p><strong>Placa:</strong> {v.placa}</p>
               <p><strong>Quilometragem:</strong> {v.quilometragem}</p>
               <p><strong>Tipo:</strong> {v.tipo}</p>
-              <button onClick={() => handleEdit(index)} className='btn-Veiculo'>
-                Alterar Veículo
+              <button onClick={() => handleEdit(index)} className='btn-alt-Veiculo'>
+                <img src="lapis.png" alt="lapis" />
               </button>
             </div>
           ))}
