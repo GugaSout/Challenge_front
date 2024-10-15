@@ -1,6 +1,4 @@
-
-import './Sobre.css'
-
+import './../estilos/sobre.css'
 
 export default function Sobre(){
     

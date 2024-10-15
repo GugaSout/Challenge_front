@@ -3,60 +3,71 @@
     padding: 0;
     box-sizing: border-box;
     
-    }
-.Mainlog{   
-    background-image: url("wallpaperBu.jpg");
-    background-position:center;
-    background-size: cover;
-    background-repeat: no-repeat;
+}
+.Mainlog{
+    font-family: inherit;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+.div-wpp-carro{
     height: 100vh;
+    width: 65%;
+    background-image: url('/wallpaper_carro_paisagem.jpg');
+    background-position: left;
+    background-size: cover; 
 }
 .DivLogin{
-    flex: 1;
+    width: 35%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+}
+.DivLogin h1{
+    font-size: 3em;
 }
 .DivLogin h2{
-    font-size: 3rem;
-    color: white;
-    margin-bottom: 30px;
-    z-index: 1;
-    text-shadow: 0px 0px 20px white;
+    text-align: center;
+    font-size: 2em;
 }
 .Login{
-    background-color: white;
-    width: 30vw;
-    box-shadow: 0px 0px 25px 2px  black;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 30px;
+    margin-top: 60px;
+    width: 100%;
 }
-
-.objLogin{
+.Linput{
+    padding: 10px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    
+}
+.lblLogin{
+    font-weight: bold;
+    text-align:left;
+    margin-top: 25px;
+}
+.inpLogin{
     padding: 10px 0px;
-    margin-bottom: 20px;
+    margin: 10px 0px;
     border-radius: 5px;
     border: 1px solid grey;
     width: 80%;
     text-indent: 10px;
+    
 }
 .btnLog{
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 0px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 10px;
     cursor: pointer;
-    width: 80%;
-    
+    width: 40%;
+    align-self: center;
+    font-family: inherit;
+    font-weight: bold;
+    margin: 15px 0px;
 }
 .btnLog:hover{
     background-color: white;
@@ -69,18 +80,14 @@
 }
 .Login a{
     margin-top: 20px;
-   
     color:rgb(0, 67, 155);
     font-weight: bold;
+    text-align: center;
 }
 .icones_redes{
-   
-    
-  color: white;
   text-align: center;
   padding: 15px;
- margin-bottom: 10px;
-
+  margin:20px 0px;
 }
 .redes{
     margin: 10px;

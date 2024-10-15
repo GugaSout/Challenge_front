@@ -1,5 +1,7 @@
+"use client"
+
 import React, { useState } from 'react';
-import './Veiculos.css'
+import './../estilos/veiculos.css'
 
 interface Veiculo {
   modelo: string;
